@@ -2,4 +2,71 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 16px;
+}
+
+.applicationsList {
+  /* Wrapper for applications to enable proper :last-child targeting */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .Applications {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Applications {
+    padding: 0 12px;
+  }
+}
+
+.loadMoreButton {
+  width: 200px;
+  height: 39px;
+  margin: 0 auto 79px;
+  display: block;
+  background-color: #0c2340;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  .loadMoreButton {
+    width: 100%;
+    height: 44px;
+    font-size: 16px;
+  }
+}
+
+.loadMoreButton:hover:not(:disabled) {
+  background-color: #081a2b;
+  transform: translateY(-1px);
+}
+
+.loadMoreButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.loadMoreButton:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.initialLoading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  color: #737373;
+  font-family: Aesop;
+  font-weight: 400;
+  font-size: 16px;
 }

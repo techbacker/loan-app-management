@@ -1,23 +1,132 @@
 .SingleApplication {
   display: grid;
-  grid-template-columns: 15% 15% auto 15% 15% 15%;
-  padding: 20px;
-
+  grid-template-columns:
+    minmax(208px, 1fr) minmax(208px, 1fr) minmax(248px, 2fr)
+    minmax(208px, 1fr) minmax(208px, 1fr) minmax(208px, 1fr);
+  gap: 24px;
+  padding: 20px 24px;
   background-color: white;
-  box-shadow: 0px 5px 16px 0px rgba(173, 200, 215, 0.25);
-  border-radius: 10px;
-  margin-bottom: 1rem;
+  box-shadow: 0px 5px 16px 0px #0000000d;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  height: auto;
+  align-items: start;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.SingleApplication:last-child {
+  margin-bottom: 42px;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 1024px) {
+  .SingleApplication {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 16px;
+    gap: 16px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .SingleApplication {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 16px;
+  }
+}
+
+.SingleApplication:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 8px 20px 0px #0000001a;
+}
+
+.SingleApplication.newlyLoaded {
+  animation: slideInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .cell {
   text-align: left;
-  border-right: 1px solid #eee;
-  padding: 0 15px;
+  padding: 0;
+  color: #0c2340;
+  font-family: Aesop;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: 0px;
+  max-width: 100%;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+@media (max-width: 1024px) {
+  .cell {
+    min-width: auto;
+  }
+
+  .emailCell {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .cell {
+    padding: 0;
+    text-align: left;
+    font-size: 16px;
+    line-height: 120%;
+    min-width: auto;
+  }
+
+  .emailCell {
+    min-width: auto;
+  }
 }
 
 .cell sub {
   display: block;
-  font-size: 0.8rem;
-  color: #999;
+  font-size: 12px;
+  color: #737373;
   margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .cell sub {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+}
+
+.emailCell {
+  min-width: 248px;
+}
+
+.emailCell a {
+  color: #246ac1;
+  text-decoration: none;
+}
+
+.emailCell a:hover {
+  text-decoration: underline;
 }

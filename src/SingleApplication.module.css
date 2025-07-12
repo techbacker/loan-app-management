@@ -130,3 +130,7 @@
 .emailCell a:hover {
   text-decoration: underline;
 }
+
+.rightAlignedCell {
+  text-align: right;
+}

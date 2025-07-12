@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './SingleApplication.module.css';
 import { formatDate } from './utils/date';
+import cx from 'classnames';
 
 interface SingleApplicationProps {
   application: any;
@@ -30,18 +31,18 @@ const SingleApplication: React.FC<SingleApplicationProps> = ({
         <sub>Name</sub>
         {application?.first_name} {application?.last_name}
       </div>
-      <div className={`${styles.cell} ${styles.emailCell}`}>
+      <div className={cx(styles.cell, styles.emailCell)}>
         <sub>Email</sub>
         <a href={`mailto:${application.email}`}>{application.email}</a>
       </div>
-      <div className={styles.cell}>
+      <div className={cx(styles.cell, styles.rightAlignedCell)}>
         <sub>Loan Amount</sub>£{application.loan_amount.toLocaleString()}
       </div>
-      <div className={styles.cell}>
+      <div className={cx(styles.cell, styles.rightAlignedCell)}>
         <sub>Application Date</sub>
         {formatDate(application?.date_created)}
       </div>
-      <div className={styles.cell}>
+      <div className={cx(styles.cell, styles.rightAlignedCell)}>
         <sub>Expiry date</sub>
         {formatDate(application?.expiry_date)}
       </div>

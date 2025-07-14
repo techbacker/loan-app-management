@@ -5,6 +5,7 @@
 - Support error handling, if application fetch is failed, it would render ErrorMessage component
 - Added slideInUp animation for new loaded SingleApplication
 - The layout should be tablet and mobile friendly
+- I updated start script as we need wait backend server ready first then running frontend server. Otherwise, it will display error page on the first page load and have to click retry button to fetch data again
 - The backend API is loaded from dotenv. Have to create .env file for config the api url:
 
 ```
